@@ -210,10 +210,7 @@ const ContactSection = () => {
                     <Github size={20} />
                     <span>GitHub Profile</span>
                   </a>
-                  <a href="https://www.fiverr.com/faisal_aslam" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all shadow-lg hover:scale-105">
-                    <ExternalLink size={20} />
-                    <span>Hire on Fiverr</span>
-                  </a>
+
                 </div>
               </div>
             </div>

@@ -58,9 +58,6 @@ const HeroSection = ({ scrollToSection }) => {
             <a href="https://github.com/faysal-aslam" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-slate-800 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all shadow-sm border border-slate-200 dark:border-slate-700 hover:scale-110 hover:shadow-md">
               <Github size={24} className="text-slate-700 dark:text-slate-300" />
             </a>
-            <a href="https://www.fiverr.com/faisal_aslam" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-slate-800 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all shadow-sm border border-slate-200 dark:border-slate-700 hover:scale-110 hover:shadow-md">
-              <ExternalLink size={24} className="text-slate-700 dark:text-slate-300" />
-            </a>
           </div>
         </div>
         <div className="relative slide-in-right">
