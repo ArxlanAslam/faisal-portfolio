@@ -192,8 +192,8 @@ const ContactSection = () => {
                     <CheckCircle className="text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">Availability</p>
-                      <p className="text-slate-900 dark:text-white font-semibold">Available for Projects</p>
-                      <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">Typically respond within 24 hours</p>
+                      <p className="text-slate-900 dark:text-white font-semibold">Available for Full Time Job</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">Open to full-time opportunities</p>
                     </div>
                   </div>
                 </div>

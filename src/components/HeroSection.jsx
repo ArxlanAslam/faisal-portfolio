@@ -19,7 +19,7 @@ const HeroSection = ({ scrollToSection }) => {
         <div className="space-y-6 slide-in-left">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900 rounded-full text-indigo-700 dark:text-indigo-300 text-sm font-medium transition-transform hover:scale-105">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            Available for Projects
+            Available for Full Time Job
           </div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
             AI/ML Engineer
