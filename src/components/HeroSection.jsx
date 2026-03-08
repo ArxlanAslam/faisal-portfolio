@@ -68,7 +68,7 @@ const HeroSection = ({ scrollToSection }) => {
           <div className="relative rounded-3xl shadow-2xl w-full max-w-md mx-auto bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-500 p-1 overflow-hidden transition-transform hover:scale-105 duration-300">
             <div className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden">
               <img 
-                src="https://i.postimg.cc/cCrYLprL/bhaii-crop-image.png"
+                src="https://i.postimg.cc/rm1wDShR/bhaii-crop-image.png"
                 alt="Faisal Aslam - AI/ML Engineer"
                 className="w-full h-full object-cover"
                 loading="lazy"
