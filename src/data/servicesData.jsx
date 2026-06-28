@@ -3,22 +3,22 @@ import { Brain, Zap, Target, TrendingUp } from 'lucide-react';
 export const services = [
   {
     icon: <Brain size={32} />,
-    title: "LLM Integration",
-    description: "Custom RAG systems, chatbots, and AI agents powered by state-of-the-art language models."
+    title: "Agentic AI & LLM Integration",
+    description: "Multi-agent systems, RAG pipelines, and LLM orchestration powered by LangGraph, CrewAI, and state-of-the-art models."
   },
   {
     icon: <Zap size={32} />,
-    title: "AI Automation",
-    description: "End-to-end automation solutions using multi-agent systems and workflow orchestration."
+    title: "AI Automation & Workflows",
+    description: "Enterprise workflow automation with n8n, self-correcting agents, and autonomous business process orchestration."
   },
   {
     icon: <Target size={32} />,
     title: "Computer Vision",
-    description: "Object detection, tracking, and real-time video analysis systems using YOLO and OpenCV."
+    description: "Object detection, tracking, and real-time video analysis with YOLOv8, DeepSORT, and RTSP streaming."
   },
   {
     icon: <TrendingUp size={32} />,
-    title: "Speech AI",
-    description: "Speech-to-text, text-to-speech, and conversational AI systems with natural interactions."
+    title: "Speech AI & Web3 Agents",
+    description: "Whisper ASR, voice AI, SIP integration, and conversational Web3 trading agents with non-custodial architecture."
   }
 ];

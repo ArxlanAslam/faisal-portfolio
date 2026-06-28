@@ -11,8 +11,8 @@ const ExperienceSection = ({ experience }) => {
     position: exp.role,
     company: exp.company,
     duration: exp.period,
-    location: 'Remote',
-    type: 'Full-time',
+    location: exp.location || 'Lahore, Pakistan',
+    type: exp.type || 'Full-time',
     description: exp.achievements,
     technologies: []
   }));

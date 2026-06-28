@@ -22,13 +22,13 @@ const HeroSection = ({ scrollToSection }) => {
             Available for Full Time Job
           </div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
-            AI/ML Engineer
+            Senior AI/ML Engineer
           </h1>
           <div className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 font-semibold">
-            Generative AI | AI Agents | Computer Vision
+            Generative AI | Agentic Systems | RAG | AI Solution Architect
           </div>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            I design and develop real-world AI solutions including RAG chatbots, multi-agent systems, speech AI, healthcare automation, and computer vision applications using LLMs, LangGraph, and FastAPI.
+            Senior AI/ML Engineer with 5+ years building production Generative AI systems — agentic AI, multi-agent orchestration, RAG, and computer vision deployed on AWS, GCP, and Azure. Currently Team Lead at Linvex Solutions, turning complex requirements into reliable, compliant AI products.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <button 

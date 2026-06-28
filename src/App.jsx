@@ -23,7 +23,7 @@ import KeyboardShortcuts from './components/KeyboardShortcuts';
 import GitHubStats from './components/GitHubStats';
 
 // Import data
-import { projects, skills, experience, certifications, caseStudies } from './data/portfolioData.jsx';
+import { projects, skills, experience, education, certifications, caseStudies } from './data/portfolioData.jsx';
 import { services } from './data/servicesData.jsx';
 import { blogs } from './data/blogData.jsx';
 
@@ -49,7 +49,7 @@ const Portfolio = () => {
     const steps = 60;
     const interval = duration / steps;
 
-    const targets = { projects: 8, experience: 4, technologies: 20 };
+    const targets = { projects: 15, experience: 5, technologies: 35 };
     let step = 0;
 
     const timer = setInterval(() => {
@@ -170,7 +170,7 @@ const Portfolio = () => {
           <BlogSection blogs={blogs} />
 
           {/* Certifications Section */}
-          <CertificationsSection certifications={certifications} />
+          <CertificationsSection education={education} certifications={certifications} />
 
           {/* Contact Section */}
           <ContactSection />

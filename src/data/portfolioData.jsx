@@ -2,286 +2,511 @@ import { Brain, Code, Database } from 'lucide-react';
 
 export const projects = [
   {
-    title: "Real-Time Live Call Conversational Chatbot",
-    icon: "📞",
-    description: "Generative AI product featuring real-time live call conversational capabilities. Built with RAG system using Llama3.2 LLM and FAISS embeddings, integrated with Elastix Phone Calls Server for handling live voice calls.",
-    tech: ["Llama3.2", "RAG", "FAISS", "Google STT/TTS", "Python SIP Client", "Elastix Server"],
-    category: "Conversational AI",
-    metrics: "Real-time voice conversations, RAG-powered responses, live call integration",
+    title: "Vyera AI — Competitive Intelligence Multi-Agent Platform",
+    icon: "🎯",
+    description: "AI-powered competitive intelligence platform for the UK market that autonomously discovers competitors, scrapes data via Firecrawl, and synthesizes strategic insights through a LangGraph supervisor graph with full UK GDPR compliance.",
+    tech: ["LangGraph", "Multi-Agent", "Firecrawl", "FastAPI", "AWS", "UK GDPR"],
+    category: "Multi-Agent AI",
+    metrics: "360° competitor profiles, UK GDPR compliant, live on vyera.ai",
     github: "https://github.com/faysal-aslam",
+    demo: "https://vyera.ai",
     details: [
-      "Created RAG System with Llama3.2 LLM using FAISS embeddings for intelligent responses",
-      "Integrated Google Speech-to-Text and Text-to-Speech modules for voice processing",
-      "Developed Python SIP client for handling live calls with Elastix Phone Server",
-      "Real-time conversational capabilities during phone calls",
-      "Context-aware responses using RAG architecture"
+      "Architected multi-agent LangGraph supervisor graph for autonomous competitive intelligence",
+      "Built specialized agents for web scraping, social media, pricing, and market positioning",
+      "Engineered full UK GDPR compliance (data minimization, consent, right-to-erasure)",
+      "Owned end-to-end AWS infrastructure (IAM, security, scalable deployment)",
+      "Led cross-functional developer team for production delivery"
     ],
-    challenges: "Integrating real-time voice processing with LLM responses while maintaining low latency during live phone calls and ensuring accurate speech-to-text conversion.",
-    architecture: "RAG system with Llama3.2 and FAISS embeddings, Google STT/TTS pipeline, Python SIP client for Elastix integration, and real-time response generation."
+    challenges: "Coordinating multi-source data pipelines while maintaining UK GDPR compliance and delivering actionable strategic insights at scale.",
+    architecture: "LangGraph multi-agent supervisor with Firecrawl scraping pipelines, FastAPI backend, and AWS infrastructure with GDPR governance layer."
   },
   {
-    title: "HighTribe — Multi-Agents Travel Assistant",
+    title: "Kresus — Web3 Conversational AI Trading Agent",
+    icon: "⛓️",
+    description: "Production Web3 conversational trading agent — FastAPI + LangGraph service driving Claude for on-chain trades across Solana, Base, and Worldchain through natural language with non-custodial client-side signing.",
+    tech: ["LangGraph", "Claude", "FastAPI", "SSE", "Solana", "Base", "Worldchain", "DeFi"],
+    category: "Agentic AI + Web3",
+    metrics: "30+ trading tools, non-custodial, SSE streaming to mobile app",
+    github: "https://github.com/faysal-aslam",
+    demo: "https://kresus.com",
+    details: [
+      "Architected AI orchestration layer replacing previous in-process Rust agent",
+      "Engineered multi-turn agentic tool-calling loop over 30+ trading tools",
+      "Integrated DexScreener, Hyperliquid, swaps, transfers, and pump.fun deployment",
+      "Preserved non-custodial model — tools return unsigned transactions for mobile wallet signing",
+      "Enforced deterministic safety guardrails with structured observability logging"
+    ],
+    challenges: "Building a safe, non-custodial trading agent with real-time SSE streaming while enforcing chain-specific guardrails across multi-chain DeFi operations.",
+    architecture: "FastAPI + LangGraph + Claude orchestration, 30+ tool-calling integrations, SSE streaming, and client-side transaction signing model."
+  },
+  {
+    title: "Advanced Hybrid RAG — LightRAG + Neo4j + Azure AI",
+    icon: "🔗",
+    description: "Hybrid multi-agent RAG system combining LightRAG (Neo4j knowledge graph) with Azure Document Intelligence. Deployed at Saudi Aramco for petroleum-management teams as an enterprise knowledge assistant.",
+    tech: ["LightRAG", "Neo4j GraphDB", "Azure AI", "LangGraph", "GraphRAG", "SQL"],
+    category: "Advanced RAG",
+    metrics: "Deployed at Saudi Aramco, multi-hop reasoning beyond vector search",
+    github: "https://github.com/faysal-aslam",
+    demo: "https://auxee.com",
+    details: [
+      "Smart routing: LightRAG + SQL for Excel/CSV; Azure Document Intelligence + GraphRAG for PDF/DOCX/TXT",
+      "Entity and relationship extraction via Neo4j knowledge graph",
+      "Multi-hop reasoning beyond traditional vector search",
+      "Deployed internally at Aramco for technical and operational document queries",
+      "LangGraph multi-agent orchestration for document-type routing"
+    ],
+    challenges: "Building unified routing across heterogeneous document types while enabling multi-hop graph reasoning for enterprise-scale knowledge bases.",
+    architecture: "LangGraph multi-agent system, LightRAG + Neo4j GraphDB, Azure Document Intelligence, and SQL layer for structured data."
+  },
+  {
+    title: "NeuroSync — Real-Time AI Meeting Intelligence & CRM",
+    icon: "🧠",
+    description: "Real-time meeting intelligence platform transcribing live meetings via OpenAI Whisper with speaker diarization, extracting action items and deal signals, syncing to Salesforce CRM in under 3 seconds post-meeting.",
+    tech: ["OpenAI Whisper", "Speaker Diarization", "LangGraph", "Salesforce API", "AWS Lambda"],
+    category: "Speech AI + CRM",
+    metrics: "Sub-200ms latency per chunk, Salesforce sync in <3s post-meeting",
+    github: "https://github.com/faysal-aslam",
+    details: [
+      "Real-time transcription with speaker diarization via OpenAI Whisper",
+      "Extracts action items, deal signals, and sentiment from live meetings",
+      "Automatic Salesforce CRM sync within 3 seconds post-meeting",
+      "Fully serverless event-driven architecture on AWS Lambda + API Gateway",
+      "Sub-200ms processing latency per transcript chunk at concurrent scale"
+    ],
+    challenges: "Achieving sub-second CRM sync from live meeting audio while maintaining accurate speaker attribution and sentiment extraction at scale.",
+    architecture: "Serverless AWS Lambda pipeline, Whisper ASR with diarization, LangGraph extraction agents, and Salesforce API integration."
+  },
+  {
+    title: "SynthAgent — Autonomous AI Research Analyst",
+    icon: "🔬",
+    description: "ReAct-pattern research agent with self-correction loops that autonomously plans research, evaluates output quality, and refines findings before delivering citation-rich reports via Vertex AI Gemini.",
+    tech: ["ReAct", "Self-Reflection", "Vertex AI Gemini", "LangGraph", "Firecrawl"],
+    category: "Agentic AI",
+    metrics: "Research cycles reduced from 8 hours to under 25 minutes",
+    github: "https://github.com/faysal-aslam",
+    details: [
+      "Built ReAct agent with self-correction and reflection loops",
+      "Autonomous research planning with quality evaluation before delivery",
+      "Multi-source synthesis via Firecrawl + RAG integration",
+      "Citation-rich report generation via Vertex AI Gemini",
+      "Reduced senior-analyst research cycles from 8 hours to under 25 minutes"
+    ],
+    challenges: "Designing reliable self-correction loops that know when to trigger additional research without infinite loops or degraded output quality.",
+    architecture: "ReAct agent with LangGraph orchestration, Firecrawl web research, RAG synthesis, and Vertex AI Gemini report generation."
+  },
+  {
+    title: "Real-Time Live-Call Conversational Chatbot",
+    icon: "📞",
+    description: "End-to-end real-time conversational AI with custom RAG pipeline (LLaMA 3.2 + FAISS) for sub-second knowledge retrieval over live inbound phone calls via custom Python SIP client and Elastix VoIP PBX.",
+    tech: ["LLaMA 3.2", "RAG", "FAISS", "Google STT/TTS", "Python SIP", "Elastix VoIP"],
+    category: "Conversational AI",
+    metrics: "Sub-second RAG retrieval, 24/7 autonomous inbound call handling",
+    github: "https://github.com/faysal-aslam",
+    details: [
+      "Custom RAG pipeline with LLaMA 3.2 + FAISS for sub-second knowledge retrieval",
+      "Custom Python SIP client integrated with Elastix VoIP PBX",
+      "Autonomous 24/7 inbound call handling without human intervention",
+      "Google Speech-to-Text and Text-to-Speech for voice processing",
+      "Context-aware responses during live phone conversations"
+    ],
+    challenges: "Integrating real-time voice processing with LLM responses while maintaining sub-second latency during live phone calls.",
+    architecture: "RAG with LLaMA 3.2 + FAISS, Google STT/TTS pipeline, Python SIP client for Elastix integration."
+  },
+  {
+    title: "HighTribe — Multi-Agent Travel Assistant",
     icon: "✈️",
-    description: "Multi-agent AI product for travel assistance and trip planning integrated with Google Maps. Features different LangGraph agents for internal database queries, Google Maps integration, and external web search. Live on web and mobile app stores.",
-    tech: ["LangGraph", "Multi-Agents", "Gemini", "ChatGPT", "Google Maps API", "Mobile Apps"],
+    description: "Production-grade multi-agent system (LangGraph) live on web, Google Play, and Apple App Store with specialized agents for internal DB querying, Google Maps, and real-time web search.",
+    tech: ["LangGraph", "Multi-Agent", "Gemini", "GPT-4", "Google Maps API"],
     category: "AI Multi-Agent System",
     metrics: "Live on Web, Google Play Store and iOS App Store",
     github: "https://github.com/faysal-aslam",
     demo: "https://hightribe.com",
     details: [
-      "Implemented different LangGraph Agents for Internal Database management",
-      "Google Maps integration for location-based recommendations and navigation",
-      "External Web Search agent for real-time travel information",
-      "Used Gemini and ChatGPT for intelligent travel planning",
-      "Successfully deployed on web and mobile platforms (Google/iOS App Store)"
+      "Specialized LangGraph agents for internal DB, Google Maps, and web search",
+      "Dual-LLM routing (Gemini + GPT-4) with fallback strategies",
+      "Optimal response quality and cost efficiency at scale",
+      "Successfully deployed on web and mobile platforms",
+      "Real-time travel planning with location-based recommendations"
     ],
-    challenges: "Coordinating multiple AI agents to work together seamlessly while managing different data sources and ensuring real-time responses for travel queries.",
-    architecture: "LangGraph multi-agent system with specialized agents for database, maps, and web search. Gemini and ChatGPT integration, cross-platform deployment (Web/iOS/Android)."
+    challenges: "Coordinating multiple AI agents across data sources while optimizing LLM cost and quality through dual-model routing.",
+    architecture: "LangGraph multi-agent system with Gemini + GPT-4 dual routing, Google Maps integration, cross-platform deployment."
   },
   {
-    title: "IntelliFlow — Enterprise Workflow Automation",
+    title: "IntelliFlow — Enterprise Autonomous Workflow System",
     icon: "⚡",
-    description: "Enterprise-grade autonomous workflow automation system combining n8n with LLM-powered agents. Designed for intelligent workflow orchestration and business process automation using GPT, Llama, and other LLMs.",
-    tech: ["n8n", "LLM Agents", "GPT", "Llama", "Workflow Automation", "Enterprise AI"],
+    description: "Enterprise-grade workflow automation platform on n8n integrated with LLM-powered agents (GPT-4, LLaMA) for complex multi-step business process automation without human intervention.",
+    tech: ["n8n", "LLM Agents", "GPT-4", "LLaMA", "Workflow Orchestration"],
     category: "AI Automation",
-    metrics: "Enterprise-grade automation, multi-LLM integration, workflow orchestration",
+    metrics: "Multi-step autonomous workflows, conditional branching, dynamic task execution",
     github: "https://github.com/faysal-aslam",
     details: [
-      "Designed and deployed enterprise-grade AI automation platform",
-      "Integrated n8n with LLM-powered agents (GPT, Llama, etc.)",
-      "Autonomous workflow system for business process automation",
-      "Intelligent decision-making in workflow orchestration",
-      "Enterprise-level scalability and reliability"
+      "Enterprise-grade n8n platform with LLM-powered agent integration",
+      "Modular LLM agent pipelines with decision-making and conditional branching",
+      "Dynamic task execution across enterprise systems",
+      "Autonomous multi-step business process automation",
+      "GPT-4 and LLaMA integration for intelligent workflow decisions"
     ],
-    challenges: "Creating a flexible automation system that can handle complex business workflows while leveraging multiple LLMs for intelligent decision-making.",
-    architecture: "n8n workflow engine integrated with multiple LLM agents (GPT, Llama), autonomous decision system, and enterprise-grade deployment infrastructure."
+    challenges: "Creating flexible automation that handles complex business workflows with reliable LLM-driven decision-making.",
+    architecture: "n8n workflow engine with GPT-4/LLaMA agent pipelines, conditional branching, and enterprise system connectors."
   },
   {
-    title: "CareVision — Digital Healthcare Management",
+    title: "CareVision — HIPAA-Compliant Healthcare AI",
     icon: "🏥",
-    description: "Healthcare AI product featuring AI-based care plan generation and voice-based data entry/extraction. Streamlines healthcare management with intelligent automation for patient care planning and documentation.",
-    tech: ["Healthcare AI", "Care Plan Generation", "Voice Recognition", "STT/TTS", "Data Extraction"],
+    description: "HIPAA-compliant healthcare platform with PHI encryption, RBAC, and audit logging. AI care-plan generation engine with voice-based data entry and NLP medical entity extraction.",
+    tech: ["Healthcare AI", "HIPAA", "Voice AI", "NLP", "PHI Security", "STT/TTS"],
     category: "Healthcare AI",
-    metrics: "AI care plan generation, voice-based data entry, healthcare automation",
+    metrics: "HIPAA compliant, PHI encryption at rest and in transit, live at carevisioncms.co.uk",
     github: "https://github.com/faysal-aslam",
+    demo: "https://carevisioncms.co.uk",
     details: [
-      "Implemented AI-based Care Plan Generation for patient management",
-      "Voice-Based Data Entry system for hands-free documentation",
-      "Intelligent Data Extraction from healthcare records",
-      "Streamlined healthcare workflow automation",
-      "Speech-to-text and text-to-speech integration"
+      "PHI encryption at rest and in transit with RBAC and audit logging",
+      "AI care-plan generation engine using LLMs",
+      "Voice-based data entry with STT/TTS integration",
+      "NLP medical entity extraction from clinical notes and diagnosis codes",
+      "Meets US federal healthcare data-privacy requirements"
     ],
-    challenges: "Ensuring HIPAA compliance while implementing AI-driven care planning and handling medical terminology accurately in voice processing.",
-    architecture: "AI care plan generation engine, voice recognition system (STT/TTS), data extraction pipeline, and secure healthcare data management."
+    challenges: "Ensuring HIPAA compliance while implementing AI-driven care planning and accurate medical terminology in voice processing.",
+    architecture: "HIPAA-compliant platform with PHI security layer, LLM care-plan engine, voice AI pipeline, and NLP entity extraction."
   },
   {
-    title: "Advance Hybrid RAG System",
-    icon: "🔗",
-    description: "Advanced Multi-Agent RAG system combining LightRAG with Neo4j GraphDB and Azure Documents Intelligence. Hybrid approach handling all document types with specialized processing for Excel/CSV (LightRAG + SQL) and documents (Azure AI + LightRAG).",
-    tech: ["LangGraph", "LightRAG", "Neo4j GraphDB", "Azure AI", "Multi-Agents", "Hybrid RAG"],
-    category: "Advanced RAG",
-    metrics: "Multi-agent RAG, Graph database, handles all document types",
+    title: "VisionGuard — Multimodal AI Fraud Detection",
+    icon: "🛡️",
+    description: "FinTech fraud-detection system fusing transaction data, document image analysis (ID/cheque verification), and behavioral biometrics into a unified risk score via multimodal transformer architecture on AWS SageMaker.",
+    tech: ["Multimodal AI", "Anomaly Detection", "AWS SageMaker", "Computer Vision", "FinTech"],
+    category: "FinTech AI",
+    metrics: "10,000+ transactions/min, p99 latency under 80ms",
     github: "https://github.com/faysal-aslam",
     details: [
-      "Created MultiAgent System using LangGraph for orchestration",
-      "Used Hybrid techniques for processing all types of documents",
-      "Excel and CSVs: LightRAG + SQL for structured data extraction",
-      "PDFs/Docs/Text: Azure Document Intelligence + LightRAG for entities and relationships",
-      "Neo4j GraphDB for knowledge graph storage and retrieval"
+      "Multimodal transformer fusing transaction, document, and biometric signals",
+      "ID and cheque verification via document image analysis",
+      "Behavioral biometrics integrated into unified risk scoring",
+      "Deployed on AWS SageMaker auto-scaling endpoints",
+      "Handles 10,000+ transactions/min at p99 latency under 80ms"
     ],
-    challenges: "Building a unified system that intelligently processes different document types while extracting entities, relationships, and maintaining context across diverse data sources.",
-    architecture: "LangGraph multi-agent system, LightRAG for graph-based retrieval, Neo4j GraphDB for storage, Azure Document Intelligence for document parsing, SQL for structured data."
+    challenges: "Fusing heterogeneous data modalities into a single real-time risk score while meeting strict fraud-prevention SLAs.",
+    architecture: "Multimodal transformer on AWS SageMaker with document CV pipeline, transaction analysis, and behavioral biometrics fusion."
   },
   {
-    title: "Employee Counting & Tracking System",
+    title: "DocuMind — Autonomous AI Legal Document Review",
+    icon: "⚖️",
+    description: "Autonomous legal-review agent ingesting contracts and NDAs to flag risky clauses, missing obligations, and jurisdiction-specific issues via LangGraph multi-step reasoning over a legal RAG knowledge base.",
+    tech: ["LegalTech", "Azure OpenAI", "LangGraph", "RAG", "NER", "GPT-4o"],
+    category: "LegalTech AI",
+    metrics: "Document review reduced from days to under 10 minutes",
+    github: "https://github.com/faysal-aslam",
+    details: [
+      "LangGraph multi-step reasoning agent over legal RAG knowledge base",
+      "Flags risky clauses, missing obligations, and jurisdiction-specific issues",
+      "Azure OpenAI GPT-4o for intelligent legal analysis",
+      "Critical/High/Medium/Low risk-severity report generation",
+      "Reduced law-firm document review from days to under 10 minutes"
+    ],
+    challenges: "Accurately identifying jurisdiction-specific legal risks across diverse contract types with actionable severity classification.",
+    architecture: "LangGraph reasoning agent, Azure OpenAI GPT-4o, legal RAG knowledge base, and NER for clause extraction."
+  },
+  {
+    title: "Employee Counting & Tracking — Live CCTV",
     icon: "👥",
-    description: "Computer vision product for live employee counting and tracking from CCTV camera feeds. Built with FastAPI and YOLOv8, featuring DeepSORT tracking algorithm with face recognition from RTSP camera streams.",
-    tech: ["FastAPI", "YOLOv8", "DeepSORT", "RTSP", "Face Recognition", "Live Tracking"],
+    description: "Real-time CV system for live employee counting and tracking from CCTV feeds using YOLOv8 + DeepSORT for persistent identity tracking with face-recognition biometric layer for named-presence detection.",
+    tech: ["YOLOv8", "DeepSORT", "FastAPI", "RTSP", "Face Recognition"],
     category: "Computer Vision",
-    metrics: "Real-time tracking, RTSP streaming, face recognition integration",
+    metrics: "Real-time RTSP streaming, persistent identity tracking, multi-camera support",
     github: "https://github.com/faysal-aslam",
     details: [
-      "Completed production-ready product in FastAPI Framework with YOLOv8",
-      "Live Employee Counting and Tracking using DeepSORT Algorithm",
-      "RTSP Camera Stream processing for real-time monitoring",
-      "Face Recognition integration for identity verification",
-      "Multi-camera support with centralized tracking"
+      "FastAPI backend processing RTSP camera streams in real time",
+      "YOLOv8 + DeepSORT for persistent identity tracking across frames",
+      "Face-recognition biometric layer for named-presence detection",
+      "Multi-camera support with centralized tracking dashboard",
+      "Handles occlusions and crowded environments"
     ],
-    challenges: "Maintaining accurate tracking across multiple camera feeds while handling occlusions, lighting variations, and ensuring real-time performance.",
-    architecture: "FastAPI backend, YOLOv8 for detection, DeepSORT for tracking, RTSP stream processing, face recognition module, and monitoring dashboard."
+    challenges: "Maintaining accurate tracking across multiple camera feeds with occlusions, lighting variations, and crowded environments.",
+    architecture: "FastAPI + RTSP pipeline, YOLOv8 detection, DeepSORT tracking, and face-recognition biometric module."
   },
   {
     title: "CRM/ERP Data Extraction Agent",
     icon: "💼",
-    description: "AI agent product for CRM/ERP data extraction using natural language queries. Built with LangGraph and custom SQL tools to fetch data from ERP databases with humanized queries. Currently under active development.",
-    tech: ["LangGraph", "AI Agents", "SQL", "ERP Integration", "NLP"],
+    description: "LangGraph AI agent enabling non-technical users to query production ERP databases in natural language via custom NL-to-SQL tool integrated into the agent graph.",
+    tech: ["LangGraph", "Natural Language to SQL", "Custom SQL Tool", "ERP Integration"],
     category: "AI Agents",
-    metrics: "Under development - Natural language to SQL, ERP database integration",
+    metrics: "NL-to-SQL for ERP databases, under active development",
     github: "https://github.com/faysal-aslam",
     details: [
-      "LangGraph Agent created with Custom SQL Tool",
-      "Fetches data from ERP Database with humanized natural language queries",
-      "Intelligent query understanding and SQL generation",
-      "ERP system integration for business data access",
+      "LangGraph agent with custom SQL tool for ERP database queries",
+      "Natural language to SQL translation for non-technical users",
+      "Intelligent query understanding of ERP-specific schemas",
+      "Integrated into agent graph for conversational data access",
       "Currently under active development"
     ],
-    challenges: "Translating complex natural language business queries into accurate SQL while understanding ERP-specific database schemas and relationships.",
-    architecture: "LangGraph agent framework with custom SQL tools, ERP database connectors, NLP query parser, and SQL generation engine."
+    challenges: "Translating complex natural language business queries into accurate SQL across ERP-specific database schemas.",
+    architecture: "LangGraph agent framework with custom NL-to-SQL tools and ERP database connectors."
   },
   {
-    title: "Chex.AI — Vehicle Inspection through AI",
+    title: "Chex.AI — End-to-End Vehicle Inspection AI",
     icon: "🚗",
-    description: "End-to-end AI product for automated vehicle inspection combining computer vision and LLMs. Complete FastAPI framework with AWS integration, featuring license plate extraction, damage detection, video tracking, and Pixtral LLM reports.",
+    description: "Full-stack AI vehicle-inspection platform with FastAPI backend, AWS authentication + S3 storage, license-plate extraction, damage detection via fine-tuned YOLOv8, and Pixtral LLM damage reports.",
     tech: ["YOLOv8", "FastAPI", "AWS", "Pixtral LLM", "Object Tracking"],
     category: "Computer Vision + Gen AI",
-    metrics: "Complete vehicle inspection, 95% damage detection accuracy",
+    metrics: "95% damage detection accuracy, live at chex.ai",
     github: "https://github.com/faysal-aslam",
+    demo: "https://chex.ai",
     details: [
-      "Developed Complete FastAPI Framework including AWS Authentication Modules",
-      "Data fetching and uploading after preprocessing from AI Model",
-      "License Plate Number Extraction through YOLOv8 Model",
-      "Vehicle Damage Detection Using Fine-Tuned YOLOv8",
-      "Video Object Tracking for damage detection in live video",
-      "Integrated Pixtral LLM with Damage Detection for intelligent reports"
+      "Full-stack platform with FastAPI backend and AWS auth + S3 storage",
+      "License-plate extraction and vehicle damage detection via fine-tuned YOLOv8",
+      "Pixtral multimodal LLM for human-readable damage-assessment reports",
+      "Video object-tracking module for live damage detection in video streams",
+      "95% damage detection accuracy across vehicle types"
     ],
-    challenges: "Processing high-resolution vehicle images in real-time while maintaining accuracy across various lighting conditions and vehicle types.",
-    architecture: "FastAPI backend with AWS integration, YOLOv8 detection pipeline, video object tracking, and Pixtral LLM for damage assessment reports."
+    challenges: "Processing high-resolution vehicle images in real-time while maintaining accuracy across lighting conditions and vehicle types.",
+    architecture: "FastAPI + AWS backend, YOLOv8 detection pipeline, video tracking, and Pixtral LLM report generation."
   },
   {
-    title: "DeftGPT — Multi-LLM Platform",
+    title: "DeftGPT — Multi-LLM Unified AI Platform",
     icon: "🤖",
-    description: "Complete Generative AI product integrating 11 different LLMs in one platform. Users can choose their preferred LLM or get multiple model responses simultaneously for comparative analysis on the same question.",
-    tech: ["11 LLM APIs", "FastAPI", "AWS", "Multi-Model Integration"],
+    description: "Unified platform integrating 11 LLMs through a single FastAPI backend on AWS, allowing users to compare, switch, and receive parallel responses from multiple models simultaneously.",
+    tech: ["FastAPI", "AWS", "Multi-LLM Orchestration", "GPT-4", "LLaMA"],
     category: "Generative AI",
-    metrics: "11 LLMs integrated, deployed on AWS, multi-response comparison",
+    metrics: "11 LLMs integrated, live at deftgpt.com",
     github: "https://github.com/faysal-aslam",
+    demo: "https://deftgpt.com",
     details: [
-      "Developed Complete FastAPI for this Generative AI Product",
-      "Successfully deployed on AWS cloud infrastructure",
-      "Setup 11 different LLMs (APIs) in one platform 'DeftGPT'",
-      "Users can choose their own LLM of choice on same platform",
-      "Get multiple Models Response on same Question for comparison",
-      "Real-time response streaming from multiple models"
+      "11 LLM APIs integrated through single FastAPI backend on AWS",
+      "Users compare, switch, and receive parallel multi-model responses",
+      "Full LLM API routing, authentication, and session management",
+      "Real-time response streaming from multiple models",
+      "Advanced multi-model orchestration architecture"
     ],
-    challenges: "Managing concurrent API calls to multiple LLM providers while handling rate limits and ensuring consistent response formatting.",
-    architecture: "FastAPI backend with async processing, AWS deployment, API gateway for LLM routing, and real-time response aggregation system."
-  },
-  {
-    title: "RAG System for School Exams Management",
-    icon: "📚",
-    description: "End-to-end Generative AI RAG system for automated MCQ generation from PDF books. Integrated with Llama 3.1 for human-like conversational responses and topic-based question generation.",
-    tech: ["RAG", "Llama 3.1", "PDF Processing", "NLP", "FastAPI"],
-    category: "Generative AI",
-    metrics: "Auto-generates MCQs from any PDF, topic-based question generation",
-    github: "https://github.com/faysal-aslam",
-    details: [
-      "Implemented MCQs Generation system from given PDF Book",
-      "Integrated Llama 3.1 for human-like conversational response",
-      "User just writes topic name and gets MCQs related to that topic",
-      "Provides correct answers with generated questions",
-      "PDF parsing and intelligent content extraction pipeline"
-    ],
-    challenges: "Extracting meaningful context from educational PDFs and generating relevant, curriculum-aligned questions with accurate answers.",
-    architecture: "RAG pipeline with PDF processing, vector database for content storage, Llama 3.1 for generation, and FastAPI backend."
-  },
-  {
-    title: "Conversational Chatbot for Ticket Management",
-    icon: "🎫",
-    description: "End-to-end conversational chatbot for online ticket booking system. Llama 3.1 integrated with PostgreSQL database for tickets and buses information, supporting both voice and typing interactions with automatic database updates.",
-    tech: ["Llama 3.1", "PostgreSQL", "Voice AI", "STT/TTS", "FastAPI"],
-    category: "Conversational AI",
-    metrics: "Voice and text booking, auto-database updates, natural conversations",
-    github: "https://github.com/faysal-aslam",
-    details: [
-      "Attached Llama 3.1 with Tickets and Buses Information Database (PostgreSQL)",
-      "Chatbot loads database itself and conversates with user",
-      "Supports both Voice and Typing for ticket booking",
-      "Natural language conversation for booking process",
-      "Automatically updates the dataset in Database after booking"
-    ],
-    challenges: "Managing conversational state across booking steps while ensuring accurate database transactions and handling voice input variations.",
-    architecture: "Llama 3.1 with PostgreSQL integration, speech-to-text/text-to-speech pipeline, conversation state management, and FastAPI backend."
+    challenges: "Managing concurrent API calls to 11 LLM providers while handling rate limits and consistent response formatting.",
+    architecture: "FastAPI async backend on AWS with API gateway for LLM routing and real-time response aggregation."
   }
 ];
 
 export const skills = [
-  { 
-    category: "AI & Machine Learning", 
+  {
+    category: "Generative AI & LLMs",
     icon: <Brain className="text-indigo-400" />,
-    items: ["RAG Systems (LightRAG, GraphRAG)", "Large Language Models (LLMs)", "Custom Fine-Tuning & LORA", "AI Agents & Multi-Agent Systems", "Object Detection (YOLO)", "Object Tracking (DeepSORT)", "Face Recognition", "n8n", "Zapier"] 
+    items: [
+      "Large Language Models (GPT-4, Claude, Gemini, LLaMA 3.2, Pixtral)",
+      "Prompt Engineering & Fine-Tuning (LoRA)",
+      "Multimodal AI & Multi-LLM Orchestration",
+      "RAG (Agentic, Hybrid, GraphRAG, LightRAG)",
+      "Vector Search (FAISS) & Neo4j Knowledge Graphs",
+      "LangSmith, LLM Evaluation & AI Observability"
+    ]
   },
-  { 
-    category: "Frameworks & Tools", 
+  {
+    category: "Agentic AI & Orchestration",
     icon: <Code className="text-indigo-400" />,
-    items: ["FastAPI", "LangGraph", "Flask", "Django", "LangChain", "CrewAI", "Vertex AI", "GCP", "Azure AI Foundry", "MCP (Model Context Protocol)"] 
+    items: [
+      "LangGraph, CrewAI, LangChain, n8n",
+      "ReAct, Tool Calling, MCP, Guardrails",
+      "Self-Correcting Agents & Workflow Orchestration",
+      "FastAPI, Flask, Django, REST APIs, WebSockets",
+      "Natural Language to SQL, Salesforce & Google Maps APIs",
+      "Docker, CI/CD, GenAIOps"
+    ]
   },
-  { 
-    category: "Technologies & Databases", 
+  {
+    category: "Cloud, Vision & Compliance",
     icon: <Database className="text-indigo-400" />,
-    items: ["Neo4j GraphDB", "PostgreSQL", "Vector Databases", "AWS Cloud Services", "RTSP Streaming", "STT/TTS Systems", "YOLOv8", "Pixtral LLM", "Llama 3.1", "Chatbots"] 
+    items: [
+      "AWS (SageMaker, Lambda, ECS, S3), GCP (Vertex AI, Cloud Run)",
+      "Azure OpenAI & Azure AI Foundry",
+      "YOLOv8, DeepSORT, Face Recognition, RTSP Streams",
+      "OpenAI Whisper, Google STT/TTS, SIP/VoIP",
+      "Web3 Agents (Solana, Base, DeFi, Non-Custodial Wallets)",
+      "HIPAA & UK GDPR Compliance"
+    ]
   }
 ];
 
 export const experience = [
   {
-    role: "Senior AI Engineer (Computer Vision + Generative AI)",
+    role: "Senior AI Engineer (Team Lead)",
+    company: "Linvex Solutions",
+    period: "Mar 2025 – Present",
+    location: "Lahore, Pakistan",
+    type: "Full-time · On-site",
+    description: "Senior AI Engineer and Team Lead owning end-to-end architecture, cloud infrastructure, and cross-functional delivery of production Generative AI systems across agentic AI, RAG, Web3, and enterprise domains.",
+    achievements: [
+      "Vyera AI — competitive intelligence multi-agent platform (live: vyera.ai)",
+      "Kresus — Web3 conversational trading agent across Solana, Base, and Worldchain",
+      "Advanced Hybrid RAG deployed at Saudi Aramco via auxee.com",
+      "NeuroSync — real-time meeting intelligence with Salesforce CRM sync",
+      "SynthAgent — self-correcting ReAct research agent (8hr → 25min cycles)"
+    ]
+  },
+  {
+    role: "Senior AI Engineer",
     company: "Gicoh",
-    period: "July 2024 - Present (1.9 Years+)",
-    description: "Leading AI development initiatives focusing on advanced generative AI, multi-agent systems, computer vision, and enterprise-grade AI automation solutions. Building production-ready AI products across healthcare, travel, automation, and enterprise domains.",
+    period: "Apr 2023 – Mar 2025",
+    location: "Lahore, Pakistan",
+    type: "Full-time · On-site",
+    description: "Led development of production Generative AI and computer vision products across healthcare, travel, automation, FinTech, and LegalTech domains.",
     achievements: [
-      "Created Real-Time Live Call Conversational Chatbot with RAG, Llama3.2, and Elastix phone integration",
-      "Developed HighTribe Multi-Agents Travel Assistant (live on web and app stores)",
-      "Built IntelliFlow - Enterprise Workflow Automation with n8n and LLM agents",
-      "Implemented CareVision Healthcare AI with care plan generation and voice data entry",
-      "Developed Advanced Hybrid RAG with LightRAG, Neo4j GraphDB, and Azure AI",
-      "Built Employee Counting & Tracking System with YOLOv8, DeepSORT, and face recognition",
-      "Created CRM/ERP Data Extraction Agent using LangGraph and SQL tools"
+      "Real-Time Live-Call Conversational Chatbot with RAG, LLaMA 3.2, and Elastix SIP",
+      "HighTribe Multi-Agent Travel Assistant (live on web and app stores)",
+      "IntelliFlow — Enterprise autonomous workflow automation with n8n and LLM agents",
+      "CareVision — HIPAA-compliant healthcare AI (live: carevisioncms.co.uk)",
+      "VisionGuard multimodal fraud detection on AWS SageMaker (10K+ txns/min)",
+      "DocuMind autonomous legal document review agent with Azure OpenAI GPT-4o"
     ]
   },
   {
-    role: "AI Engineer (Computer Vision + Generative AI)",
-    company: "Techling",
-    period: "December 2021 - July 2024 (2.8 Years)",
-    description: "Developed end-to-end AI products combining computer vision and generative AI. Focused on vehicle inspection, multi-LLM integration, RAG systems, and conversational AI chatbots for enterprise clients.",
+    role: "AI Engineer",
+    company: "Techling (Private) Limited",
+    period: "Jun 2021 – Apr 2023",
+    location: "Lahore, Pakistan",
+    type: "Full-time · On-site",
+    description: "Developed end-to-end AI products combining computer vision and generative AI for enterprise clients.",
     achievements: [
-      "Built Chex.AI - Complete vehicle inspection system with YOLOv8, AWS, and Pixtral LLM",
-      "Developed DeftGPT - 11 LLM integration platform deployed on AWS",
-      "Created RAG system for school exam management with automated MCQ generation",
-      "Built conversational chatbot with voice/text for ticket management system"
+      "Chex.AI — full-stack vehicle inspection platform with YOLOv8 and Pixtral LLM (live: chex.ai)",
+      "DeftGPT — unified 11-LLM platform deployed on AWS (live: deftgpt.com)"
     ]
   },
   {
-    role: "Internship in Data Science",
-    company: "Programmer Force, Lahore",
-    period: "September 2021 - December 2021 (3 Months)",
-    description: "Engaged in hands-on AI technology exploration and experimentation. Contributed to machine learning model development under experienced mentors, working with cross-functional teams on real-world AI solutions.",
+    role: "Trainee Data Scientist",
+    company: "Programmers Force",
+    period: "Mar 2021 – Jun 2021",
+    location: "Lahore, Pakistan",
+    type: "Full-time · On-site",
+    description: "Hands-on machine learning model development and applications under experienced mentorship in a cross-functional team environment.",
     achievements: [
-      "Hands-on exploration and experimentation with AI technologies",
-      "Contributed to development of machine learning models and algorithms",
-      "Collaborated with cross-functional teams to gather and analyze data",
-      "Conducted experiments to support implementation of AI solutions"
+      "Contributed to machine learning model development and algorithms",
+      "Collaborated with cross-functional teams on real-world AI solutions",
+      "Conducted experiments supporting AI solution implementation"
     ]
   }
 ];
 
+export const education = [
+  {
+    degree: "MS Data Science (AI/ML)",
+    institution: "AUIC Islamabad",
+    period: "Feb 2020 – Jan 2023",
+    details: "CGPA 3.12/4",
+    icon: "🎓"
+  },
+  {
+    degree: "BS Computer Science",
+    institution: "GC University Faisalabad",
+    period: "Sep 2015 – Aug 2019",
+    details: "CGPA 3.42/4",
+    icon: "🎓"
+  }
+];
+
 export const certifications = [
-  { name: "Machine Learning Specialization", issuer: "Coursera (Stanford University & DeepLearning.AI)", icon: "🎓" },
-  { name: "Trainee Data Science Program", issuer: "Programmers Force, Lahore", icon: "🎓" },
-  { name: "AI & Machine Learning", issuer: "Professional Development", icon: "🎓" }
+  {
+    name: "Machine Learning Specialization",
+    issuer: "Coursera (Stanford University / DeepLearning.AI) — Andrew Ng",
+    icon: "🏆"
+  }
 ];
 
 export const caseStudies = [
   {
-    title: "Chex.AI - AI-Powered Vehicle Inspection System",
+    title: "Vyera AI — Competitive Intelligence Platform",
+    client: "Linvex Solutions",
+    category: "Multi-Agent AI + GDPR",
+    icon: "🎯",
+    duration: "6 months",
+    problem: {
+      title: "The Challenge",
+      description: "UK businesses needed automated competitive intelligence but manual research was slow, incomplete, and couldn't scale across multiple data sources while meeting UK GDPR requirements.",
+      points: [
+        "Manual competitor research took days per analysis",
+        "No unified view across web, social, and pricing data",
+        "UK GDPR compliance requirements for data collection",
+        "Inconsistent market positioning insights",
+        "No scalable multi-source intelligence pipeline"
+      ]
+    },
+    solution: {
+      title: "The Solution",
+      description: "Built Vyera AI — a LangGraph multi-agent platform that autonomously discovers competitors, scrapes data via Firecrawl, and synthesizes 360° strategic profiles with full UK GDPR compliance.",
+      points: [
+        "LangGraph supervisor graph orchestrating specialized agents",
+        "Firecrawl-powered web scraping and social media intelligence",
+        "Pricing analysis and market positioning agents",
+        "Full UK GDPR compliance (minimization, consent, right-to-erasure)",
+        "End-to-end AWS infrastructure with IAM and scalable deployment"
+      ],
+      technologies: ["LangGraph", "Firecrawl", "FastAPI", "AWS", "UK GDPR", "Multi-Agent"]
+    },
+    results: {
+      title: "The Impact",
+      metrics: [
+        { label: "Competitor Coverage", value: "360°", description: "Automated multi-source profiles" },
+        { label: "GDPR Compliance", value: "100%", description: "Full UK regulatory compliance" },
+        { label: "Research Time", value: "90%", description: "Reduction vs manual analysis" },
+        { label: "Data Sources", value: "Multi", description: "Web, social, pricing pipelines" }
+      ],
+      outcomes: [
+        "Live platform at vyera.ai serving UK market intelligence",
+        "Automated competitor discovery and profile generation",
+        "Full UK GDPR governance built into the architecture",
+        "Cross-functional team led to successful production deployment",
+        "Scalable AWS infrastructure for growing data volumes"
+      ]
+    }
+  },
+  {
+    title: "Kresus — Web3 Conversational Trading Agent",
+    client: "Linvex Solutions",
+    category: "Agentic AI + Web3",
+    icon: "⛓️",
+    duration: "8 months",
+    problem: {
+      title: "The Challenge",
+      description: "Crypto users needed a natural-language interface to research, analyze, and execute on-chain trades across multiple chains without compromising the non-custodial security model.",
+      points: [
+        "Complex multi-chain DeFi operations required technical expertise",
+        "Previous Rust agent lacked flexibility for rapid tool expansion",
+        "Non-custodial signing model must be preserved",
+        "Real-time streaming responses needed for mobile UX",
+        "Safety guardrails required for unsupported chains and cross-chain swaps"
+      ]
+    },
+    solution: {
+      title: "The Solution",
+      description: "Architected FastAPI + LangGraph + Claude orchestration with 30+ trading tools, SSE streaming to mobile, and non-custodial transaction preparation for client-side wallet signing.",
+      points: [
+        "Replaced in-process Rust agent with flexible LangGraph service",
+        "30+ tools: DexScreener, Hyperliquid, swaps, transfers, pump.fun deployment",
+        "SSE streaming for real-time mobile app responses",
+        "Non-custodial model — unsigned transactions returned for wallet signing",
+        "Deterministic safety guardrails enforced in code with full observability"
+      ],
+      technologies: ["LangGraph", "Claude", "FastAPI", "SSE", "Solana", "Base", "Worldchain", "DeFi"]
+    },
+    results: {
+      title: "The Impact",
+      metrics: [
+        { label: "Trading Tools", value: "30+", description: "Integrated on-chain operations" },
+        { label: "Chains Supported", value: "3", description: "Solana, Base, Worldchain" },
+        { label: "Custody Model", value: "100%", description: "Non-custodial preserved" },
+        { label: "Platform", value: "Live", description: "Production at kresus.com" }
+      ],
+      outcomes: [
+        "Production Web3 trading copilot live at kresus.com",
+        "Natural language on-chain trade execution across 3 chains",
+        "Non-custodial security model fully preserved",
+        "Structured logging for input, intent, and tool-call observability",
+        "Flexible agent architecture enabling rapid tool expansion"
+      ]
+    }
+  },
+  {
+    title: "Chex.AI — AI-Powered Vehicle Inspection",
     client: "Techling",
     category: "Computer Vision + Generative AI",
     icon: "🚗",
     duration: "6 months",
     problem: {
       title: "The Challenge",
-      description: "Vehicle inspection was a manual, time-consuming process requiring expert assessors. Traditional methods took 30-45 minutes per vehicle with inconsistent quality assessments and high labor costs.",
+      description: "Vehicle inspection was a manual, time-consuming process requiring expert assessors. Traditional methods took 30–45 minutes per vehicle with inconsistent quality assessments.",
       points: [
-        "Manual inspection took 30-45 minutes per vehicle",
+        "Manual inspection took 30–45 minutes per vehicle",
         "Inconsistent damage assessment across inspectors",
         "High operational costs with human assessors",
         "No automated report generation",
@@ -290,122 +515,30 @@ export const caseStudies = [
     },
     solution: {
       title: "The Solution",
-      description: "Developed Chex.AI, a comprehensive AI system combining YOLOv8 for detection, video tracking, and Pixtral LLM for intelligent reporting. Complete FastAPI framework with AWS integration.",
+      description: "Delivered Chex.AI — a full-stack platform with YOLOv8 detection, video tracking, and Pixtral LLM for intelligent damage reports, deployed on AWS.",
       points: [
-        "FastAPI framework with AWS authentication and data management",
-        "License plate extraction using fine-tuned YOLOv8 model",
+        "FastAPI backend with AWS authentication and S3 storage",
+        "License plate extraction using fine-tuned YOLOv8",
         "Custom YOLOv8 for vehicle damage detection",
-        "Real-time video object tracking for live damage assessment",
-        "Pixtral LLM integration for intelligent inspection reports"
+        "Video object tracking for live damage assessment",
+        "Pixtral LLM for human-readable inspection reports"
       ],
       technologies: ["YOLOv8", "FastAPI", "AWS", "Pixtral LLM", "Object Tracking", "Computer Vision"]
     },
     results: {
       title: "The Impact",
       metrics: [
-        { label: "Time Saved", value: "85%", description: "Inspection time reduced to <5 minutes" },
+        { label: "Time Saved", value: "85%", description: "Inspection reduced to <5 minutes" },
         { label: "Accuracy", value: "95%", description: "Damage detection accuracy" },
         { label: "Cost Reduction", value: "70%", description: "Operational cost savings" },
-        { label: "Scalability", value: "10x", description: "Increased inspection capacity" }
+        { label: "Platform", value: "Live", description: "Production at chex.ai" }
       ],
       outcomes: [
-        "Vehicle inspection reduced from 30-45 minutes to under 5 minutes",
-        "95% accuracy in damage detection across various vehicle types",
-        "Automated report generation with AI-powered insights",
-        "Successfully deployed on AWS cloud infrastructure",
-        "Processing hundreds of vehicles daily"
-      ]
-    }
-  },
-  {
-    title: "DeftGPT - Multi-LLM Integration Platform",
-    client: "Gtech",
-    category: "Generative AI",
-    icon: "🤖",
-    duration: "4 months",
-    problem: {
-      title: "The Challenge",
-      description: "Users needed to switch between multiple LLM platforms to compare responses and find the best model for their use case. No unified platform existed for multi-model comparison.",
-      points: [
-        "Users juggling multiple LLM subscriptions",
-        "No way to compare responses across models",
-        "Time wasted switching between platforms",
-        "Difficulty choosing the right LLM for specific tasks",
-        "Complex API management for developers"
-      ]
-    },
-    solution: {
-      title: "The Solution",
-      description: "Built DeftGPT, integrating 11 different LLMs in one platform with FastAPI backend deployed on AWS. Users can query multiple models simultaneously and compare responses.",
-      points: [
-        "Complete FastAPI framework deployed on AWS",
-        "Integration of 11 different LLM APIs",
-        "Simultaneous multi-model query capability",
-        "User-friendly model selection interface",
-        "Real-time response streaming and comparison"
-      ],
-      technologies: ["FastAPI", "11 LLM APIs", "AWS", "Real-time Streaming", "API Integration"]
-    },
-    results: {
-      title: "The Impact",
-      metrics: [
-        { label: "LLMs Integrated", value: "11", description: "Models in one platform" },
-        { label: "Response Time", value: "<3s", description: "Average query response" },
-        { label: "User Satisfaction", value: "92%", description: "Platform rating" },
-        { label: "Cost Savings", value: "60%", description: "Vs multiple subscriptions" }
-      ],
-      outcomes: [
-        "11 LLM APIs integrated into unified platform",
-        "Deployed successfully on AWS cloud infrastructure",
-        "Simultaneous multi-model response comparison",
-        "Users can choose or compare models in real-time",
-        "Significant cost savings vs multiple subscriptions"
-      ]
-    }
-  },
-  {
-    title: "RAG System for School Exam Management",
-    client: "Gtech",
-    category: "Generative AI + RAG",
-    icon: "📚",
-    duration: "3 months",
-    problem: {
-      title: "The Challenge",
-      description: "Creating exam questions from textbooks was extremely time-consuming for educators. Manual MCQ generation took hours and maintaining question banks was difficult.",
-      points: [
-        "Manual MCQ creation took 3-4 hours per exam",
-        "Difficulty maintaining diverse question banks",
-        "No way to generate topic-specific questions quickly",
-        "Quality inconsistency across different educators",
-        "Time-intensive review and answer verification"
-      ]
-    },
-    solution: {
-      title: "The Solution",
-      description: "Developed a RAG-based system that automatically generates MCQs from PDF textbooks. Integrated Llama 3.1 for intelligent question generation with topic-based filtering.",
-      points: [
-        "Automated MCQ generation from PDF textbooks",
-        "Llama 3.1 for human-like question formulation",
-        "Topic-based question generation with correct answers",
-        "PDF parsing and content extraction pipeline",
-        "Conversational interface for educators"
-      ],
-      technologies: ["RAG", "Llama 3.1", "PDF Processing", "NLP", "FastAPI", "Vector Database"]
-    },
-    results: {
-      title: "The Impact",
-      metrics: [
-        { label: "Time Saved", value: "90%", description: "Question generation time" },
-        { label: "Questions/Hour", value: "100+", description: "Auto-generation rate" },
-        { label: "Accuracy", value: "94%", description: "Question relevance" },
-        { label: "Productivity", value: "15x", description: "Educator efficiency gain" }
-      ],
-      outcomes: [
-        "MCQ generation reduced from hours to minutes",
-        "Educators can generate 100+ questions per hour",
-        "Topic-specific question filtering and generation",
-        "Maintains high-quality, curriculum-aligned questions",
-        "Successfully deployed for multiple educational institutions"
+        "Vehicle inspection reduced from 30–45 minutes to under 5 minutes",
+        "95% accuracy in damage detection across vehicle types",
+        "Automated AI-powered report generation with Pixtral LLM",
+        "Live production platform at chex.ai on AWS",
+        "Video tracking module for live stream damage detection"
       ]
     }
   }

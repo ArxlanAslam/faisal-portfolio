@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, ExternalLink, Send, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink, Send, CheckCircle, Phone, MapPin } from 'lucide-react';
 import toast from 'react-hot-toast';
 import FadeIn from './FadeIn';
 
@@ -70,6 +70,11 @@ const ContactSection = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText('faisal76867@gmail.com');
     toast.success('Email copied to clipboard!');
+  };
+
+  const copyPhone = () => {
+    navigator.clipboard.writeText('+92 300 9272292');
+    toast.success('Phone number copied to clipboard!');
   };
 
   return (
@@ -186,6 +191,26 @@ const ContactSection = () => {
                         faisal76867@gmail.com
                       </button>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Click to copy</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Phone className="text-indigo-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">Phone</p>
+                      <button
+                        onClick={copyPhone}
+                        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold text-left"
+                      >
+                        +92 300 9272292
+                      </button>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Click to copy</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <MapPin className="text-indigo-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">Location</p>
+                      <p className="text-slate-900 dark:text-white font-semibold">Lahore, Pakistan</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
