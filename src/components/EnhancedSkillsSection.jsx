@@ -1,26 +1,49 @@
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
+import React, { useMemo } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import FadeIn from './FadeIn';
+import { projects } from '../data/portfolioData.jsx';
+
+// Technologies to count across the real project list, grouped into readable buckets
+const TECH_BUCKETS = {
+  'LangGraph': ['LangGraph'],
+  'FastAPI': ['FastAPI'],
+  'AWS': ['AWS', 'AWS SageMaker', 'AWS Lambda', 'Amazon S3', 'API Gateway'],
+  'RAG': ['RAG', 'LightRAG', 'GraphRAG', 'FAISS', 'Neo4j GraphDB'],
+  'LLMs': ['Claude', 'GPT-4', 'GPT-4o', 'Gemini', 'LLaMA 3.2', 'Pixtral', 'Azure OpenAI', 'LLM Agents', 'Multi-LLM Orchestration'],
+  'Computer Vision': ['YOLOv8', 'DeepSORT', 'Computer Vision', 'Face Recognition']
+};
 
 const EnhancedSkillsSection = ({ skills }) => {
-  // Sample proficiency data for demonstration
-  const proficiencyData = [
-    { skill: 'LLMs & RAG', level: 95 },
-    { skill: 'AI Agents', level: 90 },
-    { skill: 'Computer Vision', level: 88 },
-    { skill: 'FastAPI', level: 92 },
-    { skill: 'LangChain', level: 90 },
-    { skill: 'PyTorch', level: 85 }
-  ];
+  // Counted from the actual project list rather than hand-written numbers
+  const usageData = useMemo(() => {
+    return Object.entries(TECH_BUCKETS)
+      .map(([bucket, members]) => ({
+        skill: bucket,
+        projects: projects.filter((p) =>
+          p.tech.some((t) => members.some((m) => t.toLowerCase().includes(m.toLowerCase())))
+        ).length
+      }))
+      .sort((a, b) => b.projects - a.projects);
+  }, []);
 
-  const radarData = [
-    { category: 'LLMs & AI', value: 95 },
-    { category: 'Computer Vision', value: 88 },
-    { category: 'Backend Dev', value: 92 },
-    { category: 'AI Agents', value: 90 },
-    { category: 'MLOps', value: 82 },
-    { category: 'Cloud & Deploy', value: 85 }
-  ];
+  // Shipped projects per domain, also derived from real data
+  const domainData = useMemo(() => {
+    const groups = {
+      'Agentic AI': ['Agentic AI', 'AI Agents', 'AI Multi-Agent System', 'Multi-Agent AI', 'Agentic AI + Web3'],
+      'RAG & Search': ['Advanced RAG'],
+      'Generative AI': ['Generative AI', 'AI Automation'],
+      'Computer Vision': ['Computer Vision', 'Computer Vision + Gen AI'],
+      'Speech & Voice': ['Speech AI + CRM', 'Conversational AI'],
+      'Regulated Domains': ['Healthcare AI', 'FinTech AI', 'LegalTech AI']
+    };
+
+    return Object.entries(groups).map(([category, categories]) => ({
+      category,
+      value: projects.filter((p) => categories.includes(p.category)).length
+    }));
+  }, []);
+
+  const maxDomain = Math.max(...domainData.map((d) => d.value), 1);
 
   return (
     <section id="skills" className="py-20 px-6 bg-white dark:bg-slate-800">
@@ -58,48 +81,58 @@ const EnhancedSkillsSection = ({ skills }) => {
 
         {/* Charts Section */}
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Bar Chart - Proficiency Levels */}
+          {/* Bar Chart - technology usage counted from the project list */}
           <FadeIn delay={300}>
             <div className="bg-slate-50 dark:bg-slate-700 rounded-2xl p-8 shadow-lg border border-slate-200 dark:border-slate-600">
-              <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Proficiency Levels</h3>
+              <h3 className="text-2xl font-bold mb-1 text-slate-900 dark:text-white">Technology Usage</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                Projects shipped using each technology
+              </p>
               <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={proficiencyData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                  <XAxis 
-                    dataKey="skill" 
-                    angle={-45} 
-                    textAnchor="end" 
+                <BarChart data={usageData} margin={{ bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#94a3b8" strokeOpacity={0.3} />
+                  <XAxis
+                    dataKey="skill"
+                    angle={-35}
+                    textAnchor="end"
                     height={80}
-                    tick={{ fill: '#6b7280', fontSize: 12 }}
+                    interval={0}
+                    tick={{ fill: '#64748b', fontSize: 12 }}
                   />
-                  <YAxis tick={{ fill: '#6b7280' }} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#1e293b', 
+                  <YAxis allowDecimals={false} tick={{ fill: '#64748b' }} />
+                  <Tooltip
+                    cursor={{ fill: '#4f46e5', fillOpacity: 0.08 }}
+                    formatter={(value) => [`${value} project${value === 1 ? '' : 's'}`, 'Shipped']}
+                    contentStyle={{
+                      backgroundColor: '#1e293b',
                       border: 'none',
                       borderRadius: '8px',
                       color: '#fff'
                     }}
                   />
-                  <Bar dataKey="level" fill="#4f46e5" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="projects" fill="#4f46e5" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </FadeIn>
 
-          {/* Radar Chart - Skill Categories */}
+          {/* Radar Chart - delivery spread across domains */}
           <FadeIn delay={400}>
             <div className="bg-slate-50 dark:bg-slate-700 rounded-2xl p-8 shadow-lg border border-slate-200 dark:border-slate-600">
-              <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Skill Distribution</h3>
+              <h3 className="text-2xl font-bold mb-1 text-slate-900 dark:text-white">Delivery Across Domains</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                Production projects delivered per problem domain
+              </p>
               <ResponsiveContainer width="100%" height={300}>
-                <RadarChart data={radarData}>
-                  <PolarGrid stroke="#374151" />
-                  <PolarAngleAxis dataKey="category" tick={{ fill: '#6b7280', fontSize: 12 }} />
-                  <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: '#6b7280' }} />
-                  <Radar name="Expertise" dataKey="value" stroke="#4f46e5" fill="#4f46e5" fillOpacity={0.6} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#1e293b', 
+                <RadarChart data={domainData}>
+                  <PolarGrid stroke="#94a3b8" strokeOpacity={0.4} />
+                  <PolarAngleAxis dataKey="category" tick={{ fill: '#64748b', fontSize: 11 }} />
+                  <PolarRadiusAxis angle={90} domain={[0, maxDomain]} allowDecimals={false} tick={{ fill: '#64748b' }} />
+                  <Radar name="Projects" dataKey="value" stroke="#4f46e5" fill="#4f46e5" fillOpacity={0.6} />
+                  <Tooltip
+                    formatter={(value) => [`${value} project${value === 1 ? '' : 's'}`, 'Delivered']}
+                    contentStyle={{
+                      backgroundColor: '#1e293b',
                       border: 'none',
                       borderRadius: '8px',
                       color: '#fff'
@@ -114,9 +147,9 @@ const EnhancedSkillsSection = ({ skills }) => {
         {/* Experience Timeline Summary */}
         <FadeIn delay={500}>
           <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">5+ Years of AI/ML Engineering</h3>
+            <h3 className="text-2xl font-bold mb-4">6+ Years of AI/ML Engineering</h3>
             <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              Specialized in building production-grade AI systems with a proven track record in LLMs, computer vision, and intelligent automation across healthcare, business, and enterprise applications.
+              Designing and shipping production-grade AI systems — LLM applications, multi-agent orchestration, RAG, and computer vision — across healthcare, FinTech, LegalTech, Web3, travel, and enterprise knowledge domains, with compliance (HIPAA, UK GDPR) built in.
             </p>
           </div>
         </FadeIn>

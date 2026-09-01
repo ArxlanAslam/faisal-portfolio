@@ -1,7 +1,7 @@
 {
-  "name": "Faisal Alam - AI/ML Engineer Portfolio",
+  "name": "Faisal Aslam - Senior AI/ML Engineer Portfolio",
   "short_name": "Faisal Portfolio",
-  "description": "Professional portfolio of Faisal Alam, AI/ML Engineer specializing in LLM applications, RAG systems, and intelligent automation",
+  "description": "Portfolio of Faisal Aslam, Senior AI/ML Engineer and AI Solution Architect specializing in agentic AI, RAG, LLM applications, and computer vision",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -21,19 +21,5 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["portfolio", "technology", "development"],
-  "screenshots": [
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ]
+  "categories": ["portfolio", "technology", "development"]
 }

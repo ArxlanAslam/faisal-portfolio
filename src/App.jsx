@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
+import React, { useState, useEffect, useRef } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
+import Toast from './components/Toast';
 
 // Import all components
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import StatsSection from './components/StatsSection';
+import ImpactSection from './components/ImpactSection';
+import LiveProductsSection from './components/LiveProductsSection';
+import SolutionFinder from './components/SolutionFinder';
+import ProcessSection from './components/ProcessSection';
 import AboutSection from './components/AboutSection';
 import EnhancedSkillsSection from './components/EnhancedSkillsSection';
 import ExperienceSection from './components/ExperienceSection';
 import ProjectsSection from './components/ProjectsSection';
 import CaseStudiesSection from './components/CaseStudiesSection';
+import ResearchSection from './components/ResearchSection';
 import ServicesSection from './components/ServicesSection';
 import BlogSection from './components/BlogSection';
 import CertificationsSection from './components/CertificationsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import SEO from './components/SEO';
-import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
-import KeyboardShortcuts from './components/KeyboardShortcuts';
+import CommandPalette from './components/CommandPalette';
+import ChatAssistant from './components/ChatAssistant';
+import ActionDock from './components/ActionDock';
 import GitHubStats from './components/GitHubStats';
 
 // Import data
-import { projects, skills, experience, education, certifications, caseStudies } from './data/portfolioData.jsx';
+import { projects, skills, experience, education, certifications, caseStudies, research } from './data/portfolioData.jsx';
 import { services } from './data/servicesData.jsx';
 import { blogs } from './data/blogData.jsx';
 
@@ -34,7 +40,11 @@ const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [counters, setCounters] = useState({ projects: 0, experience: 0, technologies: 0 });
+  const [paletteProject, setPaletteProject] = useState(null);
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
+  const [isPaletteOpen, setIsPaletteOpen] = useState(false);
+  // While a nav click is animating, ignore scroll-spy so the highlight doesn't flicker
+  const navLockRef = useRef(false);
 
   // Handle scroll
   useEffect(() => {
@@ -43,35 +53,43 @@ const Portfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Counter animation
+  // Scroll-spy: keep the nav highlight in sync with the section actually on screen
   useEffect(() => {
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
+    const ids = ['home', 'about', 'skills', 'experience', 'projects',
+                 'case-studies', 'research', 'blog', 'certifications',
+                 'services', 'process', 'solution-finder', 'contact'];
 
-    const targets = { projects: 15, experience: 5, technologies: 35 };
-    let step = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (navLockRef.current) return;
 
-    const timer = setInterval(() => {
-      step++;
-      setCounters({
-        projects: Math.min(Math.floor((targets.projects / steps) * step), targets.projects),
-        experience: Math.min(Math.floor((targets.experience / steps) * step), targets.experience),
-        technologies: Math.min(Math.floor((targets.technologies / steps) * step), targets.technologies)
-      });
+        // Of the sections currently intersecting, pick the one nearest the top
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
-      if (step >= steps) clearInterval(timer);
-    }, interval);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      // Band across the upper-middle of the viewport
+      { rootMargin: '-25% 0px -60% 0px', threshold: 0 }
+    );
 
-    return () => clearInterval(timer);
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
-  // Stats data
+  // Stats data — AnimatedCounter handles the count-up on scroll into view
   const stats = [
-    { number: counters.projects, label: "Major Projects", suffix: "+" },
-    { number: counters.experience, label: "Years Experience", suffix: "+" },
-    { number: counters.technologies, label: "Technologies", suffix: "+" },
-    { number: "24/7", label: "Support Available", suffix: "" }
+    { number: 20, label: "Production Projects", suffix: "+" },
+    { number: 6, label: "Years Experience", suffix: "+" },
+    { number: 60, label: "Technologies", suffix: "+" },
+    { number: 8, label: "Engineers Led", suffix: "" }
   ];
 
   // Scroll to section function
@@ -80,6 +98,13 @@ const Portfolio = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
     setActiveSection(id);
     setIsMenuOpen(false);
+
+    // Hold the highlight on the clicked item until the smooth scroll settles
+    navLockRef.current = true;
+    window.clearTimeout(scrollToSection._timer);
+    scrollToSection._timer = window.setTimeout(() => {
+      navLockRef.current = false;
+    }, 900);
   };
 
   return (
@@ -87,7 +112,7 @@ const Portfolio = () => {
       <ThemeProvider>
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 overflow-x-hidden transition-colors duration-300">
           <SEO />
-          <Toaster />
+          <Toast />
           
           {/* Global Styles */}
           <style>{`
@@ -141,6 +166,12 @@ const Portfolio = () => {
           {/* Stats Section */}
           <StatsSection stats={stats} />
 
+          {/* Proof first: live products a visitor can click and verify */}
+          <LiveProductsSection />
+
+          {/* Measured Impact */}
+          <ImpactSection />
+
           {/* About Section */}
           <AboutSection />
 
@@ -158,13 +189,17 @@ const Portfolio = () => {
           <ExperienceSection experience={experience} />
 
           {/* Projects Section */}
-          <ProjectsSection projects={projects} />
+          <ProjectsSection
+            projects={projects}
+            externalProject={paletteProject}
+            onExternalHandled={() => setPaletteProject(null)}
+          />
 
           {/* Case Studies Section */}
           <CaseStudiesSection caseStudies={caseStudies} />
 
-          {/* Services Section */}
-          <ServicesSection services={services} />
+          {/* R&D / Independent Projects Section */}
+          <ResearchSection research={research} />
 
           {/* Blog Section */}
           <BlogSection blogs={blogs} />
@@ -172,16 +207,35 @@ const Portfolio = () => {
           {/* Certifications Section */}
           <CertificationsSection education={education} certifications={certifications} />
 
+          {/* Services Section */}
+          <ServicesSection services={services} />
+
+          {/* Conversion block: de-risk, then triage the visitor's own problem,
+              then contact — kept adjacent so intent isn't lost in between. */}
+          <ProcessSection />
+
+          <SolutionFinder onOpenProject={setPaletteProject} />
+
           {/* Contact Section */}
           <ContactSection />
 
           {/* Footer */}
           <Footer />
 
-          {/* Floating UI Elements */}
+          {/* Floating UI Elements — one dock instead of competing buttons */}
           <ScrollProgress />
-          <ScrollToTop />
-          <KeyboardShortcuts />
+          <ActionDock
+            onOpenAssistant={() => setIsAssistantOpen(true)}
+            onOpenPalette={() => setIsPaletteOpen(true)}
+            assistantOpen={isAssistantOpen}
+          />
+          <CommandPalette
+            projects={projects}
+            onOpenProject={setPaletteProject}
+            isOpen={isPaletteOpen}
+            setIsOpen={setIsPaletteOpen}
+          />
+          <ChatAssistant isOpen={isAssistantOpen} setIsOpen={setIsAssistantOpen} />
         </div>
       </ThemeProvider>
     </HelmetProvider>

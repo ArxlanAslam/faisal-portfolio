@@ -93,6 +93,91 @@ html {
   background: theme('colors.indigo.500');
 }
 
+/* ---------------------------------------------------------------
+   Animated agent mascot (AgentIllustration.jsx)
+   All of this is switched off by the reduced-motion block below.
+----------------------------------------------------------------- */
+
+@keyframes agentFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.agent-float { animation: agentFloat 4s ease-in-out infinite; }
+
+/* Eyes squash shut briefly, on a long loop so it reads as a natural blink */
+@keyframes agentBlink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(0.1); }
+}
+/* fill-box keeps the origin relative to the element's own bounding box, so the
+   same rule works on the full illustration and the small button avatar. */
+.agent-blink {
+  animation: agentBlink 5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes agentPulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.25); }
+}
+.agent-pulse {
+  animation: agentPulse 2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes agentEmblemSpin {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+.agent-emblem { animation: agentEmblemSpin 3s ease-in-out infinite; }
+
+/* Chat bubbles drift in, hold, then fade back out */
+@keyframes agentBubble {
+  0%, 100%  { opacity: 0; transform: translateY(10px) scale(0.9); }
+  12%, 46%  { opacity: 1; transform: translateY(0) scale(1); }
+}
+.agent-bubble { animation: agentBubble 6s ease-in-out infinite; }
+.agent-bubble--1 { animation-delay: 0.4s; }
+.agent-bubble--2 { animation-delay: 3.2s; }
+
+@keyframes agentDot {
+  0%, 60%, 100% { transform: translateY(0);    opacity: 0.5; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+.agent-dot { animation: agentDot 1.2s ease-in-out infinite; }
+
+@keyframes agentOrbit {
+  from { transform: rotate(0deg)   translateX(118px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(118px) rotate(-360deg); }
+}
+.agent-orbit { animation: agentOrbit 14s linear infinite; }
+.agent-orbit--2 { animation-duration: 19s; animation-direction: reverse; }
+
+/* Highlight sweeping across the workflow strip */
+@keyframes agentSweep {
+  0%   { transform: translateX(-4rem); }
+  100% { transform: translateX(20rem); }
+}
+.agent-sweep { animation: agentSweep 3s linear infinite; }
+
+/* Each workflow step lights up in sequence */
+@keyframes agentStep {
+  0%, 70%, 100% { transform: scale(1);    box-shadow: none; }
+  20%           { transform: scale(1.14); box-shadow: 0 0 0 3px rgb(99 102 241 / 0.25); }
+}
+.agent-step { animation: agentStep 1.8s ease-in-out infinite; }
+
+/* Greeting avatar gives a small wave when it appears */
+@keyframes agentWave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  70%           { transform: rotate(-12deg); }
+  80%           { transform: rotate(10deg); }
+  90%           { transform: rotate(-6deg); }
+}
+.agent-wave { animation: agentWave 2.6s ease-in-out infinite; }
+
 /* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {

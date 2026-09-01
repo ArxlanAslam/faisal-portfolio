@@ -3,10 +3,10 @@ import FadeIn from './FadeIn';
 
 const AboutSection = () => {
   const highlights = [
-    "Vyera AI — competitive intelligence multi-agent platform (vyera.ai)",
-    "Kresus — Web3 conversational trading agent across Solana, Base & Worldchain",
+    "Kresus — Web3 conversational trading agent across Solana, Base, World Chain & Sui (kresus.com)",
+    "Vyera AI — competitive intelligence multi-agent platform for the UK market (vyera.ai)",
     "Advanced Hybrid RAG deployed at Saudi Aramco (auxee.com)",
-    "NeuroSync — real-time meeting intelligence with Salesforce CRM sync"
+    "NeuroSync — real-time meeting intelligence with autonomous Salesforce CRM sync"
   ];
 
   return (
@@ -21,7 +21,7 @@ const AboutSection = () => {
         <FadeIn delay={200}>
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 md:p-12 shadow-lg space-y-6 hover:shadow-xl transition-shadow duration-300 border border-slate-200 dark:border-slate-700">
             <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-              I am a <span className="text-indigo-600 dark:text-indigo-400 font-semibold">Senior AI/ML Engineer & Team Lead at Linvex Solutions</span> specializing in Generative AI, Agentic Systems, RAG, and Computer Vision. With 5+ years shipping production AI, I've delivered compliant (HIPAA, GDPR) solutions with measurable business impact including:
+              I am a <span className="text-indigo-600 dark:text-indigo-400 font-semibold">Senior AI Engineer (Lead) at Tekhqs</span> and an AI Solution Architect specializing in Generative AI, agentic systems, RAG, and computer vision. With 6+ years shipping production AI, I convert complex requirements into reliable, compliant (HIPAA, UK GDPR) products with measurable business impact, including:
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {highlights.map((item, idx) => (
@@ -34,7 +34,7 @@ const AboutSection = () => {
               ))}
             </div>
             <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed pt-4">
-              I specialize in agentic AI (LangGraph, CrewAI), RAG (LightRAG, GraphRAG), multi-LLM orchestration, Web3 trading agents, computer vision (YOLOv8), and cloud deployment on AWS, GCP, and Azure. MS Data Science (AI/ML) from AUIC Islamabad · BS Computer Science from GC University Faisalabad.
+              My work spans multi-agent orchestration (LangGraph, CrewAI), retrieval systems (LightRAG, GraphRAG, hybrid retrieval, NL-to-SQL), tool-calling agents and MCP, LLM evaluation and observability (LangSmith), self-hosted open-weight serving (vLLM, FP8), Web3 trading agents, and computer vision (YOLOv8, DeepSORT) — deployed on AWS, GCP, and Azure. Alongside delivery I lead engineering teams, run code review, and author CTO-level technical proposals. MS Data Science (AI/ML) from AUIC Islamabad · BS Computer Science from GC University Faisalabad.
             </p>
           </div>
         </FadeIn>

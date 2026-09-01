@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import FadeIn from './FadeIn';
 import ProjectModal from './ProjectModal';
+import { TechBadge } from './TechIcons';
 
-const ProjectsSection = ({ projects }) => {
+const ProjectsSection = ({ projects, externalProject, onExternalHandled }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortBy, setSortBy] = useState('default');
+
+  // A project chosen from the command palette opens the same modal
+  useEffect(() => {
+    if (!externalProject) return;
+    setSelectedProject(externalProject);
+    setIsModalOpen(true);
+    onExternalHandled?.();
+  }, [externalProject, onExternalHandled]);
 
   // Extract unique categories
   const categories = ['All', ...new Set(projects.map(p => p.category))];
@@ -99,9 +108,7 @@ const ProjectsSection = ({ projects }) => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.slice(0, 4).map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium">
-                      {tech}
-                    </span>
+                    <TechBadge key={i} tech={tech} />
                   ))}
                   {project.tech.length > 4 && (
                     <span className="px-3 py-1 bg-slate-200 dark:bg-slate-600 rounded-full text-sm text-slate-600 dark:text-slate-300">

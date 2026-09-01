@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { contact } from '../data/contact';
 
 const SEO = ({
-  title = "Faisal Aslam - Senior AI/ML Engineer | Generative AI, Agentic Systems & RAG",
-  description = "Senior AI/ML Engineer and Solution Architect with 5+ years building production Generative AI systems. Specialized in agentic AI, multi-agent orchestration (LangGraph), RAG, and computer vision on AWS, GCP, and Azure. Team Lead at Linvex Solutions.",
-  keywords = "Senior AI Engineer, Machine Learning, LLMs, RAG, AI Agents, LangGraph, Computer Vision, YOLOv8, FastAPI, Web3 AI, HIPAA, GDPR, AI Solution Architect",
+  title = "Faisal Aslam - Senior AI/ML Engineer | RAG and Agentic AI Expert | AI Solution Architect",
+  description = "Senior AI/ML Engineer and AI Solution Architect with 6+ years building production Generative AI systems. Specialized in multi-agent orchestration (LangGraph, CrewAI), RAG and GraphRAG, tool-calling agents, and computer vision on AWS, GCP, and Azure. Senior AI Engineer (Lead) at Tekhqs.",
+  keywords = "Senior AI Engineer, Generative AI Engineer, Agentic AI Engineer, LLM Engineer, Machine Learning Engineer, MLOps Engineer, RAG, GraphRAG, AI Agents, LangGraph, CrewAI, MCP, Computer Vision, YOLOv8, FastAPI, vLLM, Web3 AI, HIPAA, UK GDPR, AI Solution Architect",
   image = "https://i.postimg.cc/44SX9rJK/bhaii.png",
   url = "https://faisal-portfolio-zeta.vercel.app"
 }) => {
@@ -15,29 +16,34 @@ const SEO = ({
     "jobTitle": "Senior AI/ML Engineer",
     "url": url,
     "image": image,
-    "email": "faisal76867@gmail.com",
-    "telephone": "+92-300-9272292",
+    "email": contact.email,
+    "telephone": contact.phone.replace(/\s/g, '-'),
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Lahore",
+      "addressLocality": contact.location.split(',')[0],
       "addressCountry": "Pakistan"
     },
     "description": description,
     "sameAs": [
-      "https://github.com/faysal-aslam",
-      "https://www.linkedin.com/in/faisal-aslam-790238242/",
+      contact.github,
+      contact.linkedin,
       "https://faisal-portfolio-zeta.vercel.app"
     ],
     "knowsAbout": [
       "Generative AI",
       "Large Language Models",
       "Retrieval-Augmented Generation",
+      "GraphRAG",
       "AI Agents",
       "Multi-Agent Systems",
+      "Model Context Protocol",
+      "LLM Evaluation and Observability",
       "Computer Vision",
       "LangGraph",
       "FastAPI",
       "AWS",
+      "Azure OpenAI",
+      "Google Vertex AI",
       "Web3 AI"
     ],
     "alumniOf": [
@@ -52,7 +58,7 @@ const SEO = ({
     ],
     "worksFor": {
       "@type": "Organization",
-      "name": "Linvex Solutions"
+      "name": "Tekhqs"
     }
   };
 

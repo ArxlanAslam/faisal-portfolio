@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://faisal-portfolio-zeta.vercel.app/sitemap.xml
 
 # Disallow admin or private sections if any
 # Disallow: /admin

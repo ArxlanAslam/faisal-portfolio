@@ -3,7 +3,19 @@ import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const Navigation = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollY, scrollToSection }) => {
-  const navItems = ['home', 'about', 'skills', 'experience', 'projects', 'case-studies', 'services', 'blog', 'certifications', 'contact'];
+  // Deliberately short. Every label must fit on one line at lg — a wrapping
+  // nav grows taller than the hero's top padding and clips the content
+  // beneath it. Blog, certifications and services remain reachable by scroll.
+  const navItems = ['home', 'about', 'skills', 'experience', 'projects',
+    'case-studies', 'research', 'process', 'solution-finder', 'contact'];
+
+  const labelFor = (section) => {
+    if (section === 'case-studies') return 'Case Studies';
+    if (section === 'research') return 'R&D';
+    if (section === 'process') return 'Process';
+    if (section === 'solution-finder') return 'Hire Me';
+    return section;
+  };
 
   return (
     <nav 
@@ -12,27 +24,27 @@ const Navigation = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollY, scrollT
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 transition-transform hover:scale-105">
+        <div className="text-xl xl:text-2xl font-bold text-indigo-600 dark:text-indigo-400 transition-transform hover:scale-105 flex-shrink-0">
           <button
             onClick={() => scrollToSection('home')}
             aria-label="Go to home page"
-            className="focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded-lg px-2"
+            className="whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded-lg px-1"
           >
             Faisal Aslam
           </button>
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden lg:flex gap-6 items-center">
+        <div className="hidden lg:flex gap-3 xl:gap-5 items-center">
           {navItems.map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}
-              aria-label={`Navigate to ${section === 'case-studies' ? 'Case Studies' : section} section`}
+              aria-label={`Navigate to ${labelFor(section)} section`}
               aria-current={activeSection === section ? 'page' : undefined}
-              className={`capitalize hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 font-medium relative group text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded-lg px-2 py-1 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'}`}
+              className={`capitalize whitespace-nowrap hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 font-medium relative group text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded-lg px-1.5 py-1 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'}`}
             >
-              {section === 'case-studies' ? 'Case Studies' : section}
+              {labelFor(section)}
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 group-hover:w-full ${activeSection === section ? 'w-full' : ''}`}></span>
             </button>
           ))}
@@ -66,10 +78,10 @@ const Navigation = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollY, scrollT
               key={section}
               onClick={() => scrollToSection(section)}
               role="menuitem"
-              aria-label={`Navigate to ${section === 'case-studies' ? 'Case Studies' : section} section`}
+              aria-label={`Navigate to ${labelFor(section)} section`}
               className="block w-full text-left px-6 py-3 capitalize hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-slate-600 dark:text-slate-300 focus:outline-none focus:bg-indigo-50 dark:focus:bg-slate-700 focus:text-indigo-600 dark:focus:text-indigo-400"
             >
-              {section === 'case-studies' ? 'Case Studies' : section}
+              {labelFor(section)}
             </button>
           ))}
         </div>
